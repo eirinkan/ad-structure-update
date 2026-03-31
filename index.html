@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>広告構造β版 更新案内</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif; background: #f5f5f5; color: #333; line-height: 1.8; padding: 40px 20px; }
+  .container { max-width: 720px; margin: 0 auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); overflow: hidden; }
+  .header { background: linear-gradient(135deg, #2c3e50, #34495e); color: #fff; padding: 32px 36px; }
+  .header h1 { font-size: 20px; font-weight: 600; margin-bottom: 6px; }
+  .header p { font-size: 13px; color: #b0bec5; }
+  .body { padding: 36px; }
+  h2 { font-size: 16px; font-weight: 600; color: #2c3e50; margin: 28px 0 12px; padding-bottom: 6px; border-bottom: 2px solid #ecf0f1; }
+  h2:first-child { margin-top: 0; }
+  p { font-size: 14px; margin-bottom: 12px; }
+  .point-box { background: #fef9e7; border-left: 4px solid #f39c12; padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 16px 0; }
+  .point-box p { margin-bottom: 0; }
+  .example-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; }
+  .example-table th { background: #ecf0f1; padding: 10px 14px; text-align: center; font-weight: 600; }
+  .example-table td { padding: 10px 14px; text-align: center; border-bottom: 1px solid #ecf0f1; }
+  .change-box { display: flex; gap: 16px; margin: 16px 0; }
+  .change-item { flex: 1; border-radius: 8px; padding: 16px; }
+  .change-before { background: #fdecea; border: 1px solid #e57373; }
+  .change-after { background: #e8f5e9; border: 1px solid #81c784; }
+  .change-label { font-size: 12px; font-weight: 600; margin-bottom: 6px; }
+  .change-before .change-label { color: #c62828; }
+  .change-after .change-label { color: #2e7d32; }
+  .change-content { font-size: 14px; }
+  .rationale { background: #e8eaf6; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+  .rationale p { margin-bottom: 0; }
+  .scope { background: #f5f5f5; border-radius: 8px; padding: 16px 20px; margin: 16px 0; font-size: 13px; }
+  .scope ul { padding-left: 20px; margin-top: 8px; }
+  .scope li { margin-bottom: 4px; }
+  .footer { padding: 20px 36px; background: #fafafa; border-top: 1px solid #ecf0f1; font-size: 12px; color: #999; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>広告構造（β版）更新案内</h1>
+  <p>測定ポイント「広告→クリック」の指標変更 | 2026年3月31日</p>
+</div>
+
+<div class="body">
+
+<h2>レビューで頂いた指摘</h2>
+
+<p>測定ポイント「広告→クリック」の指標として CTR（クリック率）を採用していましたが、以下の問題をご指摘いただきました。</p>
+
+<div class="point-box">
+  <p>CTR単独では、広告媒体のアルゴリズムが配信先ユーザー層を変えることによる<strong>CPM（表示コスト）の差</strong>を反映できない。同じキャンペーン内の2つの広告であっても、配信されるユーザーが大きく異なればCPMに差が生まれ、CTRだけでクリエイティブの優劣を判断できなくなる。</p>
+</div>
+
+<h2>具体例</h2>
+
+<p>同じキャンペーンに背景画像だけが異なる2つの広告を入れた場合:</p>
+
+<table class="example-table">
+  <tr><th></th><th>広告A</th><th>広告B</th></tr>
+  <tr><td style="font-weight:600;">CPM</td><td>5,000円</td><td>1,000円</td></tr>
+  <tr><td style="font-weight:600;">CTR</td><td>10%</td><td>2%</td></tr>
+  <tr><td style="font-weight:600;">CPC（算出）</td><td>50円</td><td>50円</td></tr>
+</table>
+
+<p>CTRだけ見ると広告Aが5倍優秀に見えますが、CPMの差を考慮すると、実際のクリック獲得コスト（CPC）は同じ50円です。CTRの差は<strong>クリエイティブの優劣ではなく、配信先の違い</strong>から生まれていた可能性があります。</p>
+
+<h2>対応方針</h2>
+
+<p>CTRに代えて<strong>CPC（クリック単価）</strong>を採用します。</p>
+
+<div class="rationale">
+  <p><strong>採用理由:</strong> CPCはCPMの差を織り込んだ指標であり、配信先ユーザー層の違いに左右されず、クリエイティブのコスト効率をより正確に評価できます。LPビュー単価も候補でしたが、媒体による計測可否の差があるため、全媒体で取得可能なCPCで統一しました。</p>
+</div>
+
+<h2>変更内容</h2>
+
+<p>測定ポイントテーブルの「広告→クリック」行（認知度3〜5・認知度1〜2の両方）:</p>
+
+<div class="change-box">
+  <div class="change-item change-before">
+    <div class="change-label">変更前</div>
+    <div class="change-content">広告→クリック | <strong>CTR</strong></div>
+  </div>
+  <div class="change-item change-after">
+    <div class="change-label">変更後</div>
+    <div class="change-content">広告→クリック | <strong>CPC</strong></div>
+  </div>
+</div>
+
+<div class="scope">
+  <strong>変更範囲:</strong>
+  <ul>
+    <li>指標名のみの変更（CTR → CPC）</li>
+    <li>メイン原因（コピー、デザイン + 素材）・サブ原因の対応関係は変更なし</li>
+    <li>他の測定ポイントの指標には影響なし</li>
+  </ul>
+</div>
+
+</div>
+
+<div class="footer">
+  統合マーケティング理論 | 広告構造（β版）
+</div>
+
+</div>
+</body>
+</html>
